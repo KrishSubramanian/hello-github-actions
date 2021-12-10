@@ -1,2 +1,4 @@
 this is to test variable substituion from secrets
 here is the uname : #{CString}#
+and some thing from secret #{UName}#
+
