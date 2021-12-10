@@ -17,6 +17,6 @@ jobs:
     - name: Bash - Show XML Contents
       run: cat dry.txt
     - name: Find and Replace User Name - Using Build Variable
-      run: find dry.txt -type f -exec sed -i ''s/#{UName}#/${{ env.USER_NAME }}/g'' {} \;
+      run: find dry.txt -type f -exec sed -i ''s/#{UName}#/${{ secrets.USER_NAME }}/g'' {} \;
     - name: Bash - Show JSON Contents
       run: cat Example.json
