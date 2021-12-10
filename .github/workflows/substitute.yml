@@ -13,12 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Find and Replace - Using Secrets
-      run: find *.xml -type f -exec sed -i ''s/#{CString}#/${{ secrets.CString }}/g'' {} \;
+      run: find dry.txt -type f -exec sed -i ''s/#{CString}#/${{ env.USER_NAME }}/g'' {} \;
     - name: Bash - Show XML Contents
-      run: cat Example.xml
+      run: cat dry.txt
     - name: Find and Replace User Name - Using Build Variable
-      run: find *.json -type f -exec sed -i ''s/#{UName}#/${{ env.USER_NAME }}/g'' {} \;
-    - name: Find and Replace Password - Using Build Variable
-      run: find *.json -type f -exec sed -i ''s/#{PWord}#/${{ secrets.PWord }}/g'' {} \;
+      run: find dry.txt -type f -exec sed -i ''s/#{UName}#/${{ env.USER_NAME }}/g'' {} \;
     - name: Bash - Show JSON Contents
       run: cat Example.json
