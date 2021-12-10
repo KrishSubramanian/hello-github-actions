@@ -15,8 +15,8 @@ jobs:
     - name: Find and Replace - Using Secrets
       run: find dry.txt -type f -exec sed -i ''s/#{CString}#/${{ env.USER_NAME }}/g'' {} \;
     - name: Bash - Show XML Contents
-      run: cat dry.txt
+      run: cat dry.text
     - name: Find and Replace User Name - Using Build Variable
-      run: find dry.txt -type f -exec sed -i ''s/#{UName}#/${{ secrets.USER_NAME }}/g'' {} \;
+      run: find dry.text -type f -exec sed -i ''s/#{UName}#/${{ secrets.USER_NAME }}/g'' {} \;
     - name: Bash - Show JSON Contents
       run: cat Example.json
