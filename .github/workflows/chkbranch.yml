@@ -1,4 +1,4 @@
-name: CI
+name: Chk
 
 on: [workflow_dispatch]
 
