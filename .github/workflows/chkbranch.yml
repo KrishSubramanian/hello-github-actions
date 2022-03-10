@@ -1,0 +1,14 @@
+jobs:
+  setup-stage:
+    outputs:
+      env-name: ${{ steps.env-name.outputs.env }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Environment Name
+        id: env-name
+        run: echo "::set-output name=env::${{ fromJSON('{"main":"prod","develop":"dev"}')[github.ref_name] }}"
+  build:
+    needs: setup-stage
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Environment: ${{ needs.setup-stage.outputs.env-name }}"
