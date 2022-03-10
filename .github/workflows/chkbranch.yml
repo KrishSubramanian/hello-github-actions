@@ -1,3 +1,7 @@
+name: CI
+
+on: [workflow_dispatch]
+
 jobs:
   setup-stage:
     outputs:
@@ -11,4 +15,4 @@ jobs:
     needs: setup-stage
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Environment: ${{ needs.setup-stage.outputs.env-name }}"
+      - run: echo "${{needs.setup-stage.outputs.env-name}}"
